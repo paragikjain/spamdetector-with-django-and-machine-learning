@@ -1,0 +1,15 @@
+{% block title %}
+<h2>Detect Spam Here</h2>
+{% endblock %}
+
+{% block content %}
+<form action="/result"  method="post"   >
+  {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit" value="Detect">
+  {% if message %}
+  <ul class="message">
+    <p>{{message}}</p>
+</ul>
+{% endif %}
+    {% endblock %}
